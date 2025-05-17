@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "autoprefixer": "^10.0.0",
     "mongoose": "^8.15.0",
     "next": "latest",
@@ -15,5 +16,8 @@
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.11.1"
   }
 }
