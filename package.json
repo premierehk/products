@@ -10,6 +10,7 @@
     "autoprefixer": "^10.0.0",
     "mongoose": "^8.15.0",
     "next": "latest",
+    "openai": "^4.100.0",
     "postcss": "^8.0.0",
     "react": "latest",
     "react-dom": "latest",
