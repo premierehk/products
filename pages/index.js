@@ -1,12 +1,17 @@
-import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-pink-50 flex items-center justify-center text-center p-6">
-      <div>
-        <h1 className="text-3xl font-bold mb-4">色型選選</h1>
-        <p className="text-lg">立即開始顏色與性格測驗，獲得屬於你嘅飾物推薦！</p>
-      </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-pink-50 px-4 text-center">
+      <h1 className="text-3xl font-bold mb-6">歡迎來到 ColorPersona</h1>
+      <p className="mb-8 text-lg max-w-md">
+        完成測驗，讓我們為你推薦最適合你的手作飾品！
+      </p>
+      <Link href="/quiz/color" passHref>
+        <button className="bg-murasaki-500 hover:bg-murasaki-700 text-white py-3 px-8 rounded-xl shadow text-xl">
+          開始測驗
+        </button>
+      </Link>
     </div>
   );
 }
