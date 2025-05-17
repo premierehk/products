@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/color": "pages/color.js",
-  "/api/recommend": "pages/api/recommend.js",
-  "/": "pages/index.js"
+  "/api/recommend": "pages/api/recommend.js"
 }
