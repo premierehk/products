@@ -13,7 +13,81 @@ const questions = [
   },
 ];
 
-export default function ColoursQuiz() {
+const styles = {
+  container: {
+    fontFamily: "'Inter', sans-serif",
+    maxWidth: 375,
+    margin: '0 auto',
+    padding: '20px 16px',
+    backgroundColor: '#fff',
+    color: '#111',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  header: {
+    fontSize: 28,
+    fontWeight: '700',
+    marginBottom: 24,
+    textAlign: 'center',
+  },
+  questionBlock: {
+    marginBottom: 32,
+  },
+  questionText: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 12,
+  },
+  optionButton: isSelected => ({
+    padding: '14px 12px',
+    borderRadius: 12,
+    border: `2px solid ${isSelected ? '#5568FE' : '#ddd'}`,
+    backgroundColor: isSelected ? '#EEF0FF' : '#fff',
+    color: isSelected ? '#5568FE' : '#333',
+    fontWeight: '500',
+    fontSize: 15,
+    cursor: 'pointer',
+    textAlign: 'center',
+    marginBottom: 12,
+    transition: '0.2s ease',
+  }),
+  button: {
+    backgroundColor: '#5568FE',
+    color: 'white',
+    border: 'none',
+    borderRadius: 12,
+    padding: '14px 24px',
+    fontSize: 18,
+    fontWeight: '600',
+    cursor: 'pointer',
+    width: '100%',
+    boxShadow: '0 4px 10px rgba(85,104,254,0.3)',
+    marginTop: 16,
+  },
+  productCard: {
+    padding: 16,
+    borderRadius: 12,
+    backgroundColor: '#f9f9f9',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+    marginBottom: 16,
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    borderRadius: 10,
+    marginBottom: 8,
+  },
+  footer: {
+    marginTop: 'auto',
+    padding: '12px 0',
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#888',
+  },
+};
+
+export default function PersonalityPage() {
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [recommendations, setRecommendations] = useState(null);
@@ -41,71 +115,61 @@ export default function ColoursQuiz() {
 
       setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }, 100); // Delay to allow rendering
+      }, 200);
     } catch (e) {
       alert('出錯，請稍後再試');
     }
   };
 
   return (
-    <div className="max-w-[375px] mx-auto px-4 py-6 font-sans text-[#111] bg-white min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center">個人化配對測試</h1>
+    <div style={styles.container}>
+      <header style={styles.header}>配對測試</header>
 
       {!submitted && (
         <>
           {questions.map(({ id, question, options }) => (
-            <div key={id} className="mb-6">
-              <p className="text-lg font-medium mb-3">{question}</p>
-              <div className="grid grid-cols-2 gap-4">
+            <div key={id} style={styles.questionBlock}>
+              <p style={styles.questionText}>{question}</p>
+              <div>
                 {options.map(({ label, value }) => (
-                  <button
+                  <div
                     key={value}
                     onClick={() => handleOptionChange(id, value)}
-                    className={`p-4 rounded-xl border transition text-sm font-semibold shadow-sm ${
-                      answers[id] === value
-                        ? 'border-indigo-600 bg-indigo-100 text-indigo-800'
-                        : 'border-gray-200 bg-gray-50 text-gray-700'
-                    }`}
+                    style={styles.optionButton(answers[id] === value)}
                   >
                     {label}
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
           ))}
 
-          <button
-            onClick={handleSubmit}
-            className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white text-base font-medium py-3 rounded-xl shadow transition"
-            disabled={questions.some(q => !answers[q.id])}
-          >
+          <button onClick={handleSubmit} style={styles.button}>
             提交
           </button>
         </>
       )}
 
       {submitted && (
-        <div ref={resultRef} className="mt-10">
-          <h2 className="text-xl font-bold mb-4">推薦產品</h2>
+        <div ref={resultRef} style={{ marginTop: 40 }}>
+          <h2 style={{ fontSize: 20, fontWeight: '700', marginBottom: 16 }}>推薦產品</h2>
           {recommendations?.length > 0 ? (
-            <ul>
+            <ul style={{ padding: 0, listStyle: 'none' }}>
               {recommendations.map((p, i) => (
-                <li key={i} className="mb-6 p-4 border rounded-xl shadow-sm bg-gray-50">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full h-auto mb-3 rounded-lg"
-                  />
-                  <h3 className="font-semibold text-lg">{p.name}</h3>
-                  <p className="text-sm text-gray-700">{p.description}</p>
+                <li key={i} style={styles.productCard}>
+                  <img src={p.image} alt={p.name} style={styles.image} />
+                  <h3 style={{ fontSize: 16, fontWeight: '600' }}>{p.name}</h3>
+                  <p style={{ fontSize: 14, color: '#555' }}>{p.description}</p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-gray-500">無推薦產品</p>
+            <p style={{ color: '#888' }}>無推薦產品</p>
           )}
         </div>
       )}
+
+      <footer style={styles.footer}>&copy; 2025 Premiere HK. All rights reserved.</footer>
     </div>
   );
 }
