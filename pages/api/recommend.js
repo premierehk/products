@@ -5,10 +5,9 @@ export default async function handler(req, res) {
 
   // Your existing product catalog (can also load from a JSON file)
   const productsCatalog = `
-產品清單：
-1. Pearl Elegant - 優雅珍珠設計，適合正式場合佩戴。 圖片: products/pearl-elegant.png
-2. Gold Classic - 經典金色飾品，適合各種風格。 圖片: products/gold-classic.png
-3. Rose Charm - 玫瑰花造型，浪漫甜美。 圖片: products/rose-charm.png
+圖片: products/IMG_5315.JPG
+圖片: products/IMG_5319.JPG
+圖片: products/IMG_5324.JPG
 `;
 
   // Create prompt including products list and user answers
@@ -16,13 +15,13 @@ const prompt = `
 你是一個飾物推薦助手。以下是可供推薦的飾物清單：
 ${productsCatalog}
 
-根據以下使用者資料，推薦三款最合適的飾物（名稱 + 描述 + 圖片路徑）：
+根據以下使用者資料，推薦一款最合適的飾物（名稱 + 合適原因 + 圖片路徑 + ）：
 
 ${Object.entries(userAnswers)
     .map(([key, value]) => `${key}: ${value}`)
     .join('\n')}
 
-請以 JSON 陣列回應，每個元素包含 "name", "description" 和 "image"，且不要輸出其他內容。
+請用中文以 JSON 陣列回應，先找找看那一張圖最附合users的選擇，每個元素包含 "name", "description" 和 "image"，名稱只能是6個中文字，且輸出為什你覺得合適。
 `;
 
   const endpoint = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;

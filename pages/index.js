@@ -7,7 +7,7 @@ export default function Home() {
       <p className="mb-8 text-lg max-w-md">
         完成測驗，讓我們為你推薦最適合你的手作飾品！
       </p>
-      <Link href="/color" passHref>
+      <Link href="/personality" passHref>
         <button className="bg-murasaki-500 hover:bg-murasaki-700 text-white py-3 px-8 rounded-xl shadow text-xl">
           開始測驗
         </button>
