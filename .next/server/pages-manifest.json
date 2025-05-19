@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/recommend": "pages/api/recommend.js",
+  "/personality": "pages/personality.js",
   "/": "pages/index.js",
-  "/personality": "pages/personality.js"
+  "/api/recommend": "pages/api/recommend.js"
 }
