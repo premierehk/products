@@ -5,9 +5,9 @@ export default async function handler(req, res) {
 
   // Your existing product catalog (can also load from a JSON file)
   const productsCatalog = `
-圖片: products/IMG_5315.JPG
-圖片: products/IMG_5319.JPG
-圖片: products/IMG_5324.JPG
+名稱: 創意編織耳環 圖片: products/IMG_5315.JPG
+名稱: 個性流蘇耳環 圖片: products/IMG_5319.JPG
+名稱: 耳環 圖片: products/IMG_5324.JPG
 `;
 
   // Create prompt including products list and user answers
@@ -15,7 +15,7 @@ const prompt = `
 你是一個飾物推薦助手。以下是可供推薦的飾物清單：
 ${productsCatalog}
 
-根據以下使用者資料，推薦一款最合適的飾物（名稱 + 合適原因 + 圖片路徑 + ）：
+根據以下使用者資料，推薦兩款最合適的飾物（名稱 + 合適原因 + 圖片路徑 + ）：
 
 ${Object.entries(userAnswers)
     .map(([key, value]) => `${key}: ${value}`)
