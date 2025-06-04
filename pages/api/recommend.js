@@ -5,9 +5,19 @@ export default async function handler(req, res) {
 
   // Your existing product catalog (can also load from a JSON file)
   const productsCatalog = `
-名稱: 創意編織耳環 圖片: products/IMG_5315.JPG
-名稱: 個性流蘇耳環 圖片: products/IMG_5319.JPG
-名稱: 耳環 圖片: products/IMG_5324.JPG
+名稱: 粉色花朵耳環 圖片: products/IMG_5315.JPG
+名稱: 藍色方形花卉耳環 圖片: products/IMG_5316.JPG
+名稱: 藍色薄紗耳環 圖片: products/IMG_5317.JPG
+名稱: 夢幻馬車項鍊 圖片: products/IMG_5318.JPG
+名稱: 花卉珍珠手鍊 圖片: products/IMG_5319.JPG
+名稱: 藍色水晶耳環 圖片: products/IMG_5320.JPG
+名稱: 粉色珍珠花卉耳環 圖片: products/IMG_5321.JPG
+名稱: 藍色薄紗珍珠髮夾 圖片: products/IMG_5322.JPG
+名稱: 白色花卉耳環 圖片: products/IMG_5323.JPG
+名稱: 編織圓形耳環 圖片: products/IMG_5324.JPG
+名稱: 透明花卉耳環 圖片: products/IMG_5325.JPG
+名稱: 茶壺水晶耳環 圖片: products/IMG_5326.JPG
+名稱: 藍色花卉長耳環 圖片: products/IMG_5327.JPG
 `;
 
   // Create prompt including products list and user answers

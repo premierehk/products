@@ -11,7 +11,45 @@ const questions = [
       { label: '細心敏銳', value: 'sensitive' },
     ],
   },
+  {
+    id: 'lifestyle',
+    question: '你平時嘅生活節奏係點？',
+    options: [
+      { label: '快節奏，活動量高', value: 'fast-paced' },
+      { label: '中等節奏，喜歡平衡', value: 'balanced' },
+      { label: '慢節奏，享受靜態生活', value: 'slow-paced' },
+    ],
+  },
+  {
+    id: 'emotion',
+    question: '你處理情緒嘅方式？',
+    options: [
+      { label: '即時講出嚟', value: 'expressive' },
+      { label: '慢慢消化唔講出嚟', value: 'reserved' },
+      { label: '轉化成創作或文字', value: 'reflective' },
+    ],
+  },
+  {
+    id: 'aesthetic',
+    question: '你偏好嘅穿搭風格？',
+    options: [
+      { label: '可愛甜美', value: 'girly' },
+      { label: '極簡清新', value: 'minimal' },
+      { label: '華麗夢幻', value: 'luxury' },
+      { label: '個性街頭', value: 'edgy' },
+    ],
+  },
+  {
+    id: 'risk',
+    question: '你傾向挑戰新事物？',
+    options: [
+      { label: '絕對願意，超愛冒險！', value: 'adventurous' },
+      { label: '有啲保留，要睇情況', value: 'cautious' },
+      { label: '唔太鍾意改變', value: 'conservative' },
+    ],
+  },
 ];
+
 
 const styles = {
   container: {
