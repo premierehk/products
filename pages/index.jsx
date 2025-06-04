@@ -67,7 +67,7 @@ export default function Home() {
           Discover Your Perfect Match
         </h2>
         <p style={{ lineHeight: 1.5, fontSize: 16, color: '#555' }}>
-          Take our color and personality test to find handmade accessories
+          Take our personality test to find handmade accessories
           designed just for you.
         </p>
       </section>
