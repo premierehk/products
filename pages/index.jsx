@@ -1,6 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+// Define featured products with their images
+const featuredProducts = [
+  { name: '粉色花朵耳環', image: '/products/IMG_5315.JPG' },
+  { name: '藍色方形花卉耳環', image: '/products/IMG_5028.JPG' },
+  { name: '藍色薄紗耳環', image: '/products/IMG_5317.JPG' },
+];
+
 const styles = {
   container: {
     fontFamily: "'Inter', sans-serif",
@@ -84,9 +91,9 @@ export default function Home() {
           Featured Products
         </h3>
         <div style={{ display: 'flex', gap: 12, overflowX: 'auto', paddingBottom: 8 }}>
-          {[1, 2, 3].map((item) => (
+          {featuredProducts.map((product, index) => (
             <div
-              key={item}
+              key={index}
               style={{
                 flex: '0 0 140px',
                 borderRadius: 12,
@@ -95,25 +102,28 @@ export default function Home() {
                 backgroundColor: '#fafafa',
                 cursor: 'pointer',
               }}
-              onClick={() => alert(`View product ${item}`)}
+              onClick={() => alert(`View product: ${product.name}`)}
             >
-              <div
+              <img
+                src={product.image}
+                alt={product.name}
                 style={{
                   height: 140,
+                  width: '100%',
                   borderRadius: 10,
-                  backgroundColor: '#ddd',
+                  objectFit: 'cover',
                   marginBottom: 8,
                 }}
               />
               <div style={{ fontWeight: 600, fontSize: 16, color: '#222' }}>
-                Product {item}
+                {product.name}
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <footer style={styles.footer}>&copy; 2025 Premiere HK. All rights reserved.</footer>
+      <footer style={styles.footer}>© 2025 Premiere HK. All rights reserved.</footer>
     </div>
   );
 }
